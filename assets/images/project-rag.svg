@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" width="100%" height="100%">
+  <defs>
+    <linearGradient id="ragBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d16" />
+      <stop offset="100%" stop-color="#0d1424" />
+    </linearGradient>
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6" />
+      <stop offset="100%" stop-color="#6366f1" />
+    </linearGradient>
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+    <pattern id="dotPattern" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#1e293b" opacity="0.8" />
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="600" height="360" fill="url(#ragBgGrad)" />
+  <rect width="600" height="360" fill="url(#dotPattern)" />
+
+  <!-- Ambient Glow -->
+  <circle cx="300" cy="180" r="140" fill="#8b5cf6" opacity="0.07" filter="blur(50px)" />
+
+  <!-- Header Window Frame -->
+  <rect x="24" y="24" width="552" height="40" rx="8" fill="#111827" stroke="#1f2937" stroke-width="1" />
+  <circle cx="46" cy="44" r="5" fill="#ef4444" opacity="0.8" />
+  <circle cx="62" cy="44" r="5" fill="#f59e0b" opacity="0.8" />
+  <circle cx="78" cy="44" r="5" fill="#10b981" opacity="0.8" />
+  <text x="105" y="48" font-family="'JetBrains Mono', Consolas, monospace" font-size="12" fill="#94a3b8">Proposed multimodal RAG concept</text>
+  <rect x="440" y="32" width="124" height="24" rx="4" fill="#1e293b" />
+  <text x="502" y="48" font-family="'JetBrains Mono', Consolas, monospace" font-size="11" fill="#a78bfa" text-anchor="middle">Privacy-focused goal</text>
+
+  <!-- Node 1: Ingestion Sources -->
+  <g transform="translate(35, 90)">
+    <rect width="135" height="230" rx="10" fill="#0f172a" stroke="#25334e" stroke-width="1.2" />
+    <rect x="12" y="14" width="111" height="26" rx="4" fill="#1e293b" />
+    <text x="67" y="31" font-family="sans-serif" font-size="11" font-weight="700" fill="#38bdf8" text-anchor="middle">1. MULTIMODAL</text>
+
+    <!-- Source Items -->
+    <!-- PDF -->
+    <g transform="translate(12, 50)">
+      <rect width="111" height="36" rx="6" fill="#162035" stroke="#2a3c5a" stroke-width="1" />
+      <text x="12" y="19" font-family="sans-serif" font-size="11" font-weight="600" fill="#f8fafc">PDF Docs</text>
+      <text x="12" y="30" font-family="'JetBrains Mono', monospace" font-size="9" fill="#94a3b8">Planned: PyMuPDF</text>
+    </g>
+    <!-- DOCX -->
+    <g transform="translate(12, 94)">
+      <rect width="111" height="36" rx="6" fill="#162035" stroke="#2a3c5a" stroke-width="1" />
+      <text x="12" y="19" font-family="sans-serif" font-size="11" font-weight="600" fill="#f8fafc">Word Files</text>
+      <text x="12" y="30" font-family="'JetBrains Mono', monospace" font-size="9" fill="#94a3b8">Planned: python-docx</text>
+    </g>
+    <!-- Scanned Images -->
+    <g transform="translate(12, 138)">
+      <rect width="111" height="36" rx="6" fill="#162035" stroke="#2a3c5a" stroke-width="1" />
+      <text x="12" y="19" font-family="sans-serif" font-size="11" font-weight="600" fill="#f8fafc">Images / Scans</text>
+      <text x="12" y="30" font-family="'JetBrains Mono', monospace" font-size="9" fill="#94a3b8">Planned: Tesseract</text>
+    </g>
+    <!-- Voice Audio -->
+    <g transform="translate(12, 182)">
+      <rect width="111" height="36" rx="6" fill="#162035" stroke="#2a3c5a" stroke-width="1" />
+      <text x="12" y="19" font-family="sans-serif" font-size="11" font-weight="600" fill="#f8fafc">Voice Memos</text>
+      <text x="12" y="30" font-family="'JetBrains Mono', monospace" font-size="9" fill="#94a3b8">Planned: Whisper</text>
+    </g>
+  </g>
+
+  <!-- Flow Arrow 1 -->
+  <path d="M 175 205 L 215 205" fill="none" stroke="#6366f1" stroke-width="2" stroke-dasharray="4,4" />
+  <polygon points="218,205 210,201 210,209" fill="#6366f1" />
+
+  <!-- Node 2: Processing & Chunking -->
+  <g transform="translate(225, 90)">
+    <rect width="150" height="230" rx="10" fill="#0f172a" stroke="#3b2b64" stroke-width="1.2" />
+    <rect x="12" y="14" width="126" height="26" rx="4" fill="#2e1065" />
+    <text x="75" y="31" font-family="sans-serif" font-size="11" font-weight="700" fill="#c084fc" text-anchor="middle">2. PROCESSING</text>
+
+    <!-- Chunking Box -->
+    <rect x="12" y="55" width="126" height="48" rx="6" fill="#191630" stroke="#4c1d95" stroke-width="1" />
+    <text x="20" y="74" font-family="sans-serif" font-size="11" font-weight="600" fill="#f8fafc">Text preparation</text>
+    <text x="20" y="88" font-family="'JetBrains Mono', monospace" font-size="9" fill="#a78bfa">Strategy to be chosen</text>
+
+    <!-- Local Embedding Box -->
+    <rect x="12" y="115" width="126" height="48" rx="6" fill="#191630" stroke="#4c1d95" stroke-width="1" />
+    <text x="20" y="134" font-family="sans-serif" font-size="11" font-weight="600" fill="#f8fafc">Embedding approach</text>
+    <text x="20" y="148" font-family="'JetBrains Mono', monospace" font-size="9" fill="#a78bfa">Model to be chosen</text>
+
+    <!-- Privacy Badge -->
+    <rect x="12" y="175" width="126" height="42" rx="6" fill="#052e16" stroke="#166534" stroke-width="1" />
+    <text x="20" y="193" font-family="sans-serif" font-size="10" font-weight="700" fill="#4ade80">Offline target</text>
+    <text x="20" y="206" font-family="'JetBrains Mono', monospace" font-size="8.5" fill="#86efac">Architecture to validate</text>
+  </g>
+
+  <!-- Flow Arrow 2 -->
+  <path d="M 380 205 L 420 205" fill="none" stroke="#a855f7" stroke-width="2" stroke-dasharray="4,4" />
+  <polygon points="423,205 415,201 415,209" fill="#a855f7" />
+
+  <!-- Node 3: Retrieval & Query -->
+  <g transform="translate(430, 90)">
+    <rect width="135" height="230" rx="10" fill="#0f172a" stroke="#1d4ed8" stroke-width="1.2" />
+    <rect x="12" y="14" width="111" height="26" rx="4" fill="#1e3a8a" />
+    <text x="67" y="31" font-family="sans-serif" font-size="11" font-weight="700" fill="#60a5fa" text-anchor="middle">3. QUERY FLOW</text>
+
+    <!-- Vector DB -->
+    <g transform="translate(12, 55)">
+      <rect width="111" height="46" rx="6" fill="#172554" stroke="#1e40af" stroke-width="1" />
+      <text x="10" y="20" font-family="sans-serif" font-size="11" font-weight="600" fill="#f8fafc">Search / retrieval</text>
+      <text x="10" y="34" font-family="'JetBrains Mono', monospace" font-size="9" fill="#93c5fd">Method to be chosen</text>
+    </g>
+
+    <!-- Query Interface -->
+    <g transform="translate(12, 115)">
+      <rect width="111" height="46" rx="6" fill="#172554" stroke="#1e40af" stroke-width="1" />
+      <text x="10" y="20" font-family="sans-serif" font-size="11" font-weight="600" fill="#f8fafc">Answer context</text>
+      <text x="10" y="34" font-family="'JetBrains Mono', monospace" font-size="9" fill="#93c5fd">Planned response flow</text>
+    </g>
+
+    <!-- Status Note -->
+    <rect x="12" y="175" width="111" height="42" rx="6" fill="#1e293b" />
+    <text x="10" y="193" font-family="sans-serif" font-size="10" font-weight="600" fill="#fbbf24">STATUS:</text>
+    <text x="10" y="206" font-family="sans-serif" font-size="9" fill="#e2e8f0">In development</text>
+  </g>
+</svg>
