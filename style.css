@@ -662,7 +662,7 @@ code,
 
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(390px, 0.9fr);
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
   align-items: center;
   gap: clamp(40px, 6vw, 84px);
 }
@@ -891,70 +891,6 @@ code,
   width: 1px;
   height: 32px;
   background: var(--surface-border-strong);
-}
-
-/* --------------------------------------------------------------------------
-   Hero Code Terminal & Interactive Workbench
-   -------------------------------------------------------------------------- */
-.hero-art {
-  position: relative;
-  min-width: 0;
-  padding: 40px 0 30px;
-}
-
-.art-orbit {
-  position: absolute;
-  z-index: -1;
-  border: 1px dashed rgba(255, 255, 255, 0.08);
-  border-radius: 50%;
-  pointer-events: none;
-}
-
-.orbit-one {
-  inset: -6% -10% -4% -6%;
-  transform: rotate(-12deg);
-}
-
-.orbit-two {
-  inset: 8% -6% -6% 8%;
-  border-color: var(--accent-dim);
-  transform: rotate(20deg);
-}
-
-.float-note {
-  position: absolute;
-  z-index: 5;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 12px;
-  border-radius: var(--radius-full);
-  background: rgba(19, 23, 34, 0.9);
-  border: 1px solid var(--surface-border-strong);
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--text-soft);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-}
-
-.note-top {
-  top: 10px;
-  right: 10px;
-}
-
-.note-bottom {
-  bottom: 6px;
-  left: 0;
-}
-
-.note-symbol {
-  color: var(--accent);
-}
-
-.note-code {
-  color: var(--accent);
-  font-weight: 700;
 }
 
 /* --------------------------------------------------------------------------
@@ -1190,38 +1126,6 @@ code,
 }
 
 
-
-/* ── responsive tweaks for hero panel ── */
-@media (max-width: 768px) {
-  .hero-art { min-height: 460px; padding: 18px 16px; }
-  .orb-nebula { background-size: 150% 150%; }
-  .orb-ring { border-width: 1px; }
-  .orb-ring-1 { width: 38%; height: 38%; }
-  .orb-ring-2 { width: 58%; height: 58%; }
-  .orb-ring-3 { width: 78%; height: 78%; }
-  .orb-satellite span { font-size: 8px; padding: 2px 5px; }
-  .orb-core-inner { width: 58px; height: 58px; }
-  .orb-initials { font-size: 16px; }
-  .orb-readouts { flex-direction: column; gap: 8px; }
-  .orb-readout { margin-bottom: 6px; }
-  .orb-readout-divider { display: none; }
-}
-
-@media (max-width: 480px) {
-  .hero-art { min-height: 380px; }
-  .orb-statusbar { flex-direction: column; gap: 4px; font-size: 9px; }
-  .orb-caption { font-size: 7px; }
-}
-
-/* ── reduced‑motion preference ── */
-@media (prefers-reduced-motion: reduce) {
-  .orb-orbit, .orb-particles *, .orb-radar-sweep::after, .orb-satellite, .orb-ring, .orb-core-ring {
-    animation: none !important;
-  }
-  .hid-pulse, .orb-pulse {
-    animation: none !important;
-  }
-}
 
 /* --------------------------------------------------------------------------
    System Benchmarks & Architectural Radar Section
@@ -2791,12 +2695,20 @@ code,
 }
 
 /* --------------------------------------------------------------------------
-   Responsive Media Queries
+   Responsive Media Queries — Comprehensive Mobile-First Overhaul
    -------------------------------------------------------------------------- */
+
+/* ── Tablet / Small Desktop (≤ 1024px) ── */
 @media (max-width: 1024px) {
   .hero-grid {
     grid-template-columns: 1fr;
-    gap: 48px;
+    gap: 40px;
+  }
+
+  .hero-art {
+    max-width: 500px;
+    margin: 0 auto;
+    min-height: 420px;
   }
 
   .two-column,
@@ -2828,8 +2740,18 @@ code,
   .footer-right {
     align-items: flex-start;
   }
+
+  .hero-metrics-bento {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .radar-bento-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
+/* ── Mobile Nav (≤ 780px) ── */
 @media (max-width: 780px) {
   .menu-toggle {
     display: block;
@@ -2858,8 +2780,112 @@ code,
     pointer-events: auto;
   }
 
+  .hero {
+    padding: 50px 0 40px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2rem, 7vw, 3rem);
+  }
+
+  .hero-intro {
+    font-size: 15px;
+  }
+
+  .hero-description {
+    font-size: 13px;
+  }
+
+  .hero-actions {
+    gap: 10px;
+    margin-top: 24px;
+  }
+
+  .button {
+    min-height: 42px;
+    padding: 0 16px;
+    font-size: 12px;
+  }
+
   .hero-metrics-bento {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  .metric-card {
+    padding: 12px 10px;
+  }
+
+  .metric-val {
+    font-size: 18px;
+  }
+
+  .metric-label {
+    font-size: 10px;
+  }
+
+  .metric-sub {
+    font-size: 9px;
+  }
+
+  .hero-footerline {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .hero-divider {
+    display: none;
+  }
+
+  /* Orbit panel on tablet-small */
+  .hero-art {
+    max-width: 100%;
+    min-height: 360px;
+  }
+
+  .orb-ring-1 { width: 36%; height: 36%; }
+  .orb-ring-2 { width: 55%; height: 55%; }
+  .orb-ring-3 { width: 78%; height: 78%; }
+
+  .orb-satellite span {
+    font-size: 8px;
+    padding: 2px 6px;
+  }
+
+  .orb-core-inner {
+    width: 56px; height: 56px;
+  }
+
+  .orb-initials {
+    font-size: 16px;
+  }
+
+  .orb-cr-1 {
+    width: 90px; height: 90px;
+  }
+
+  .orb-cr-2 {
+    width: 72px; height: 72px;
+  }
+
+  .orb-readouts {
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 12px;
+  }
+
+  .orb-readout-divider {
+    display: none;
+  }
+
+  .orb-readout {
+    flex: 1 1 40%;
+    min-width: 80px;
+  }
+
+  .orb-rd-val {
+    font-size: 14px;
   }
 
   .principles-row {
@@ -2880,8 +2906,203 @@ code,
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
+/* ── Small Phone (≤ 480px) ── */
+@media (max-width: 480px) {
+  .hero {
+    padding: 36px 0 30px;
+    min-height: auto;
+  }
 
+  .hero h1 {
+    font-size: clamp(1.6rem, 8vw, 2.4rem);
+    letter-spacing: -0.03em;
+  }
+
+  .hero-eyebrow-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .hero-status {
+    margin: 14px 0 12px;
+    padding: 5px 10px;
+    font-size: 10px;
+  }
+
+  .hero-intro {
+    font-size: 14px;
+    margin: 14px 0 8px;
+  }
+
+  .hero-description {
+    font-size: 12px;
+    line-height: 1.7;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    margin-top: 20px;
+  }
+
+  .button {
+    width: 100%;
+    justify-content: center;
+    min-height: 44px;
+  }
+
+  .hero-metrics-bento {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-top: 24px;
+  }
+
+  .metric-card {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+  }
+
+  .hero-footerline {
+    margin-top: 20px;
+    padding-top: 16px;
+    gap: 12px;
+  }
+
+  /* Orbit panel compact */
+  .hero-art {
+    min-height: 300px;
+    border-radius: 14px;
+  }
+
+  .orb-statusbar {
+    padding: 8px 12px;
+    font-size: 9px;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .orb-system {
+    aspect-ratio: 1 / 0.75;
+  }
+
+  .orb-ring-1 { width: 34%; height: 34%; }
+  .orb-ring-2 { width: 52%; height: 52%; }
+  .orb-ring-3 { width: 74%; height: 74%; }
+
+  .orb-satellite span {
+    font-size: 7px;
+    padding: 2px 5px;
+  }
+
+  .orb-satellite::before {
+    width: 6px; height: 6px;
+  }
+
+  .orb-core-inner {
+    width: 46px; height: 46px;
+  }
+
+  .orb-initials {
+    font-size: 14px;
+  }
+
+  .orb-core-label {
+    font-size: 5px;
+  }
+
+  .orb-cr-1 {
+    width: 72px; height: 72px;
+  }
+
+  .orb-cr-2 {
+    width: 58px; height: 58px;
+  }
+
+  .orb-readouts {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .orb-readout {
+    flex: none;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255,255,255,.04);
+  }
+
+  .orb-readout:last-child {
+    border-bottom: none;
+  }
+
+  .orb-rd-key {
+    text-align: right;
+  }
+
+  .orb-caption {
+    font-size: 7px;
+    padding: 6px 12px 10px;
+  }
+
+  /* Other sections */
+  .section {
+    padding: 48px 0;
+  }
+
+  .wrap {
+    padding: 0 16px;
+  }
+
+  .section-heading {
+    font-size: 1.6rem;
+  }
+
+  .eyebrow {
+    font-size: 10px;
+  }
+
+  .radar-bento-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .contact-wrap {
+    gap: 32px;
+  }
+}
+
+/* ── Extra small (≤ 360px) ── */
+@media (max-width: 360px) {
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero-intro {
+    font-size: 13px;
+  }
+
+  .orb-system {
+    aspect-ratio: 1 / 0.7;
+  }
+
+  .orb-ring-3 { width: 70%; height: 70%; }
+
+  .orb-satellite span {
+    font-size: 6px;
+    padding: 1px 4px;
+  }
+}
+
+/* ── Reduced Motion ── */
+@media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {

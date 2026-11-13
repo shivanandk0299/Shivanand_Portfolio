@@ -771,6 +771,5 @@
     document.addEventListener("DOMContentLoaded", init, { once: true });
   } else {
     init();
-  initOrbitReducedMotion();
   }
 })();
