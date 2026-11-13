@@ -259,6 +259,25 @@
     }
   }
 
+  /* --------------------------------------------------------------------------
+   Reduced‑motion handling for hero panel
+   -------------------------------------------------------------------------- */
+  function initOrbitReducedMotion() {
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (mq && mq.matches) {
+      // Disable interval‑driven pipeline animation – already stopped by CSS above
+      // Reduce typewriter speed to a calm pace
+      const tw = document.getElementById('hid-typewriter');
+      if (tw && tw._typewriter) {
+        clearInterval(tw._typewriter);
+        // No further typing – leave static placeholder
+        tw.textContent = '⏸︎';
+      }
+    }
+  }
+
+
+
 
 
   /* --------------------------------------------------------------------------
@@ -752,5 +771,6 @@
     document.addEventListener("DOMContentLoaded", init, { once: true });
   } else {
     init();
+  initOrbitReducedMotion();
   }
 })();
