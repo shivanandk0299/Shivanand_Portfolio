@@ -3102,6 +3102,131 @@ code,
 }
 
 /* ── Reduced Motion ── */
+
+/* ==========================================================================
+   HEADER MOBILE FIX — Prevent overflow & overlap on phones
+   ========================================================================== */
+
+/* ── 780px and below: hamburger mode ── */
+@media (max-width: 780px) {
+  /* Tighten the nav shell height */
+  .nav-shell {
+    min-height: 58px;
+    gap: 10px;
+    padding: 0 16px;
+  }
+
+  /* Hide the brand subtitle on mobile */
+  .brand-sub {
+    display: none;
+  }
+
+  /* Shrink brand wordmark slightly */
+  .brand-wordmark {
+    font-size: 12px;
+  }
+
+  /* Hide status pill — saves significant horizontal space */
+  .header-status-pill {
+    display: none;
+  }
+
+  /* Tighten utilities gap */
+  .header-utilities {
+    gap: 8px;
+  }
+
+  /* Shrink cmd button — hide label, keep ⌘K keys */
+  .cmd-trigger-btn .cmd-label {
+    display: none;
+  }
+  .cmd-trigger-btn {
+    padding: 6px 10px;
+    gap: 4px;
+  }
+
+  /* Shrink GitHub button */
+  .header-github-btn {
+    padding: 6px 10px;
+  }
+
+  /* Fix hero top padding to clear the shorter header */
+  .hero {
+    padding-top: 40px;
+  }
+}
+
+/* ── 580px: compact phone ── */
+@media (max-width: 580px) {
+  .nav-shell {
+    min-height: 54px;
+    gap: 8px;
+    padding: 0 14px;
+  }
+
+  /* Hide brand text completely — keep only SK. mark */
+  .brand-text {
+    display: none;
+  }
+
+  /* Hide theme accent picker — too wide for small screens */
+  .theme-accent-picker {
+    display: none;
+  }
+
+  /* Only show icon for GitHub and cmd */
+  .header-github-btn .gh-text {
+    display: none;
+  }
+  .header-github-btn {
+    padding: 6px 8px;
+    min-width: 36px;
+    justify-content: center;
+  }
+  .cmd-trigger-btn {
+    padding: 6px 8px;
+  }
+  .menu-toggle {
+    width: 36px;
+    height: 36px;
+  }
+
+  /* Adjust hero padding to clear 54px header */
+  .hero {
+    padding-top: 32px;
+  }
+}
+
+/* ── 400px: very small phones ── */
+@media (max-width: 400px) {
+  .nav-shell {
+    min-height: 50px;
+    padding: 0 12px;
+    gap: 6px;
+  }
+
+  /* Hide GitHub button entirely on very tiny screens */
+  .header-github-btn {
+    display: none;
+  }
+
+  /* Tighten cmd button further */
+  .cmd-trigger-btn {
+    padding: 5px 7px;
+  }
+  .cmd-trigger-btn .cmd-kbd {
+    gap: 1px;
+  }
+  .cmd-kbd kbd {
+    padding: 1px 3px;
+    font-size: 9px;
+  }
+
+  .hero {
+    padding-top: 24px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
